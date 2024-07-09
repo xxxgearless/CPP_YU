@@ -2,23 +2,23 @@
 #include <string>
 using namespace std;
 
+// class Person
+// {
+//   public:
+//     string name;
+//     Person(string n): name(n){}
+//     void print()
+//     {
+//         cout << "Name: " << name << endl;
+//     }
+// };
+
 class Person
 {
   public:
     string name;
     Person(string n): name(n){}
-    void print()
-    {
-        cout << "Name: " << name << endl;
-    }
-};
-
-class Person2
-{
-  public:
-    string name;
-    Person2(string n): name(n){}
-    virtual void print() = 0; 
+    virtual void print() = 0;              //纯虚函数 --》抽象类 --》 无法实例化为一个对象（无法准确分配对象内存），但是可以定义为一个指针（指针内存确定）
 };
 
 class Student: public Person
@@ -51,14 +51,14 @@ int main()
         delete p; //if its destructor is not virtual
     }
 
-    { //if you want to call a function in the base class
-        Student stu("li", "2021");
-        stu.Person::print();
+    // { //if you want to call a function in the base class
+    //     Student stu("li", "2021");
+    //     stu.Person::print();
 
-        Person * p = new Student("xue", "2020");
-        p->Person::print(); 
-        delete p; 
-    }
+    //     Person * p = new Student("xue", "2020");
+    //     p->Person::print(); 
+    //     delete p; 
+    // }
 
     return 0;
 }
